@@ -46,11 +46,10 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         collectionviewConfig()
+        
         Donut()
-        
-        let timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(Donut), userInfo: nil, repeats: true)
-        
-        print(collectionview.frame.width)
+
+        let timer = Timer.scheduledTimer(timeInterval: 0.0000001, target: self, selector: #selector(Donut), userInfo: nil, repeats: true)
     }
     
     //MARK: ViewConfig
@@ -92,7 +91,6 @@ class ViewController: UIViewController {
         var K1: Double = screen_height * K2 * 3 / (8 * (R1 + R2))
         
         
-        
         output = [String](repeating: " ", count: screen_size)
         zbuffer = [Double](repeating: 0, count: screen_size)
         
@@ -125,7 +123,7 @@ class ViewController: UIViewController {
                 let xp = Int(screen_width / 2 + K1 * ooz * x)
                 let yp = Int(screen_height / 2 - K1 * ooz * y)
                 let position = Double(xp) + screen_width * Double(yp)
-
+                                
                 //Luminance
                 let L = cosphi * costheta * sinB - cosA * costheta * sinphi - sinA * sintheta + cosB * (cosA * sintheta - costheta * sinA * sinphi)
                 
@@ -137,8 +135,8 @@ class ViewController: UIViewController {
             }
         }
         
-        A += 0.1
-        B += 0.015
+        A += 0.05
+        B += 0.05
         hue += 0.005
         collectionview.reloadData()
     }
