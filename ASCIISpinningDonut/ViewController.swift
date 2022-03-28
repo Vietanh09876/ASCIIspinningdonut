@@ -18,8 +18,8 @@ class ViewController: UIViewController {
         return view
     }()
     
-    var pixel_width = 11
-    var pixel_height = 11
+    var pixel_width = 10
+    var pixel_height = 10
     
     var A: Double = 0
     var B: Double = 0
@@ -32,7 +32,8 @@ class ViewController: UIViewController {
     var output = [String]()
     var zbuffer = [Double]()
     
-    
+    //Color
+    var hue: CGFloat = 0
     
     //MARK: LifeCycle
     override func viewDidLoad() {
@@ -57,7 +58,6 @@ class ViewController: UIViewController {
         self.view.backgroundColor = .black
         self.view.addSubview(collectionview)
         
-        
     }
     
     func collectionviewConfig() {
@@ -69,10 +69,14 @@ class ViewController: UIViewController {
     
     //MARK: Constraints
     func constraintsConfig() {
-        collectionview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        collectionview.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
-        collectionview.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
-        collectionview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+//        collectionview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+//        collectionview.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+//        collectionview.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+//        collectionview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        collectionview.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1).isActive = true
+        collectionview.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1).isActive = true
+        collectionview.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        collectionview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     //MARK: Donut
@@ -96,6 +100,7 @@ class ViewController: UIViewController {
         for theta in stride(from: 0, to: 628, by: theta_spacing) {
             for phi in stride(from: 0, to: 628, by: phi_spacing) {
                 
+                
                 let sinA = sin(A)
                 let cosA = cos(A)
                 let sinB = sin(B)
@@ -115,12 +120,6 @@ class ViewController: UIViewController {
                 let y = circlex * (sinB * cosphi - sinA * cosB * sinphi) + circley * cosA * cosB
                 let z = K2 + cosA * circlex * sinphi + circley * sinA
                 let ooz = 1 / z
-
-                
-//                let x = circlex * sinphi
-//                let y = circlex * cosphi
-//                let z = K2 + circley
-//                let ooz = 1 / z
                 
                 // x,y projection
                 let xp = Int(screen_width / 2 + K1 * ooz * x)
@@ -140,6 +139,7 @@ class ViewController: UIViewController {
         
         A += 0.1
         B += 0.015
+        hue += 0.005
         collectionview.reloadData()
     }
 
@@ -155,7 +155,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let Cell = collectionview.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         Cell.label.text = output[indexPath.item]
-        
+        Cell.label.textColor = UIColor(hue: hue, saturation: 1, brightness: 1, alpha: 1)
         return Cell
     }
     

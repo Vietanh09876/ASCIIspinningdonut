@@ -15,7 +15,7 @@
 		C673A23D27E6DED000E0F09C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C673A23B27E6DED000E0F09C /* Main.storyboard */; };
 		C673A23F27E6DED300E0F09C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C673A23E27E6DED300E0F09C /* Assets.xcassets */; };
 		C673A24227E6DED300E0F09C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C673A24027E6DED300E0F09C /* LaunchScreen.storyboard */; };
-		C673A24A27E6E04600E0F09C /* SpinningDonut.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673A24927E6E04600E0F09C /* SpinningDonut.swift */; };
+		C673A24A27E6E04600E0F09C /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673A24927E6E04600E0F09C /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		C673A23E27E6DED300E0F09C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C673A24127E6DED300E0F09C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C673A24327E6DED300E0F09C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C673A24927E6E04600E0F09C /* SpinningDonut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningDonut.swift; sourceTree = "<group>"; };
+		C673A24927E6E04600E0F09C /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 			children = (
 				C673A23527E6DED000E0F09C /* AppDelegate.swift */,
 				C673A23727E6DED000E0F09C /* SceneDelegate.swift */,
-				C673A24927E6E04600E0F09C /* SpinningDonut.swift */,
+				C673A24927E6E04600E0F09C /* Helpers.swift */,
 				C664745327ECC9DA007E1207 /* CollectionViewCell.swift */,
 				C664745427ECC9DA007E1207 /* CollectionViewCell.xib */,
 				C673A23927E6DED000E0F09C /* ViewController.swift */,
@@ -151,7 +151,7 @@
 				C664745527ECC9DA007E1207 /* CollectionViewCell.swift in Sources */,
 				C673A23A27E6DED000E0F09C /* ViewController.swift in Sources */,
 				C673A23627E6DED000E0F09C /* AppDelegate.swift in Sources */,
-				C673A24A27E6E04600E0F09C /* SpinningDonut.swift in Sources */,
+				C673A24A27E6E04600E0F09C /* Helpers.swift in Sources */,
 				C673A23827E6DED000E0F09C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
